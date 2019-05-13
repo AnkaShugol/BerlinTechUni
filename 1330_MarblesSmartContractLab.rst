@@ -53,8 +53,8 @@ This directory is also usually set in the $HOME environment variable, so *cd $HO
 
 **Step 3.2:** Retrieve the zmarbles compressed tarball prepared for this lab with the following command::
 
- bcuser@ubuntu16045:~$ wget https://raw.githubusercontent.com/Anna-Shugol/BerlinTechUni/master/zmarbles.tar.gz
- --2019-01-21 07:51:53--  https://raw.githubusercontent.com/Anna-Shugol/BerlinTechUni/master/zmarbles.tar.gz
+ bcuser@ubuntu16045:~$ wget https://raw.githubusercontent.com/AnkaShugol/BerlinTechUni/master/zmarbles.tar.gz
+ --2019-01-21 07:51:53--  https://raw.githubusercontent.com/AnkaShugol/BerlinTechUni/master/zmarbles.tar.gz
  Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.248.133
  Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.248.133|:443... connected.
  HTTP request sent, awaiting response... 200 OK
