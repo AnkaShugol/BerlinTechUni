@@ -81,18 +81,18 @@ So, enter the command below as shown, or feel free to substitute *-xzvf* for *-x
 
  ubuntu@techumaster:~$ ls -l zmarbles
  total 64
- drwxr-xr-x 2 bcuser bcuser  4096 Jan 19 09:10 base
- drwxrwxr-x 2 bcuser bcuser  4096 Jan 14 07:54 bin
- drwxr-xr-x 2 bcuser bcuser  4096 Jan 21 07:03 channel-artifacts
- drwxrwxr-x 2 bcuser bcuser  4096 Jul  3  2018 config
- -rw-r--r-- 1 bcuser bcuser 12209 Jul 30 16:15 configtx.yaml
- -rw-r--r-- 1 bcuser bcuser  4175 Jul 30 17:32 crypto-config.yaml
- -rw-r--r-- 1 bcuser bcuser  6304 Jan 19 09:10 docker-compose-template.yaml
- drwxr-xr-x 3 bcuser bcuser  4096 Jun 18  2017 examples
- -rwxr-xr-x 1 bcuser bcuser  3587 Sep 24 13:53 generateArtifacts.sh
- drwxr-xr-x 2 bcuser bcuser  4096 Oct  1  2017 hostScripts
- drwxrwxr-x 9 bcuser bcuser  4096 Jan 21 07:03 marblesUI
- drwxr-xr-x 2 bcuser bcuser  4096 Jan 19 14:58 scripts
+ drwxr-xr-x 2 ubuntu ubuntu  4096 Jan 19 09:10 base
+ drwxrwxr-x 2 ubuntu ubuntu  4096 Jan 14 07:54 bin
+ drwxr-xr-x 2 ubuntu ubuntu  4096 Jan 21 07:03 channel-artifacts
+ drwxrwxr-x 2 ubuntu ubuntu  4096 Jul  3  2018 config
+ -rw-r--r-- 1 ubuntu ubuntu 12209 Jul 30 16:15 configtx.yaml
+ -rw-r--r-- 1 ubuntu ubuntu  4175 Jul 30 17:32 crypto-config.yaml
+ -rw-r--r-- 1 ubuntu ubuntu  6304 Jan 19 09:10 docker-compose-template.yaml
+ drwxr-xr-x 3 ubuntu ubuntu  4096 Jun 18  2017 examples
+ -rwxr-xr-x 1 ubuntu ubuntu  3587 Sep 24 13:53 generateArtifacts.sh
+ drwxr-xr-x 2 ubuntu ubuntu  4096 Oct  1  2017 hostScripts
+ drwxrwxr-x 9 ubuntu ubuntu  4096 Jan 21 07:03 marblesUI
+ drwxr-xr-x 2 ubuntu ubuntu  4096 Jan 19 14:58 scripts
 
 An explanation of the purpose of each of these files and directories is given here:
 
