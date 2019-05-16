@@ -193,11 +193,11 @@ If you took all defaults, you would be generating artifacts to create a channel 
 
 **Step 2.15:** Run *byfn.sh* with the *generate* argument in order to generate the necessary cryptographic material and channel configuration for a channel named *mychannel*.  If you wish to use a different channel name, maybe named after your favorite child or pet or car or football team or spouse, use the *-c* argument as well, but be aware that channel names must start with a lowercase character, and contain only lowercase characters, numbers, and a small number of punctuation characters such as a dash (*-*) and a couple others I can't remember right now.  You'll also have to use this channel name on other inovcations of *byfn.sh* in subsequent steps.  Just don't use uppercase letters, okay?  (You can use uppercase numbers if that makes you feel better).  The below examples show creating a channel named *tim*. Use *tim* or create your own name or leave the *-c* argument off altogether to use the default of *mychannel*.  You decide.  I trust your judgement. So go ahead and issue this command or your customized ::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-samples/first-network$ ./byfn.sh generate -c tim
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-samples/first-network$ ./byfn.sh generate -c tim
  Generating certs and genesis block for channel 'tim' with CLI timeout of '10' seconds and CLI delay of '3' seconds
  Continue? [Y/n] Y
  proceeding ...
- /home/bcuser/git/src/github.com/hyperledger/fabric-samples/first-network/../bin/cryptogen
+ /home/ubuntu/git/src/github.com/hyperledger/fabric-samples/first-network/../bin/cryptogen
 
  ##########################################################
  ##### Generate certificates using cryptogen tool #########
@@ -208,7 +208,7 @@ If you took all defaults, you would be generating artifacts to create a channel 
  + res=0
  + set +x
 
- /home/bcuser/git/src/github.com/hyperledger/fabric-samples/first-network/../bin/configtxgen
+ /home/ubuntu/git/src/github.com/hyperledger/fabric-samples/first-network/../bin/configtxgen
  ##########################################################
  #########  Generating Orderer Genesis block ##############
  ##########################################################
@@ -217,9 +217,9 @@ If you took all defaults, you would be generating artifacts to create a channel 
  + configtxgen -profile TwoOrgsOrdererGenesis -channelID byfn-sys-channel -outputBlock ./channel-artifacts/genesis.block
  2019-01-15 11:35:34.252 EST [common.tools.configtxgen] main -> INFO 001 Loading configuration
  2019-01-15 11:35:34.284 EST [common.tools.configtxgen.localconfig] completeInitialization -> INFO 002 orderer type: solo
- 2019-01-15 11:35:34.284 EST [common.tools.configtxgen.localconfig] Load -> INFO 003 Loaded configuration: /home/bcuser /git/src/github.com/hyperledger/fabric-samples/first-network/configtx.yaml
+ 2019-01-15 11:35:34.284 EST [common.tools.configtxgen.localconfig] Load -> INFO 003 Loaded configuration: /home/ubuntu /git/src/github.com/hyperledger/fabric-samples/first-network/configtx.yaml
  2019-01-15 11:35:34.317 EST [common.tools.configtxgen.localconfig] completeInitialization -> INFO 004 orderer type: solo
- 2019-01-15 11:35:34.317 EST [common.tools.configtxgen.localconfig] LoadTopLevel -> INFO 005 Loaded configuration: /home/bcuser/git/src/github.com/hyperledger/fabric-samples/first-network/configtx.yaml
+ 2019-01-15 11:35:34.317 EST [common.tools.configtxgen.localconfig] LoadTopLevel -> INFO 005 Loaded configuration: /home/ubuntu/git/src/github.com/hyperledger/fabric-samples/first-network/configtx.yaml
  2019-01-15 11:35:34.319 EST [common.tools.configtxgen] doOutputBlock -> INFO 006 Generating genesis block
  2019-01-15 11:35:34.319 EST [common.tools.configtxgen] doOutputBlock -> INFO 007 Writing genesis block
  + res=0
@@ -230,9 +230,9 @@ If you took all defaults, you would be generating artifacts to create a channel 
  #################################################################
  + configtxgen -profile TwoOrgsChannel -outputCreateChannelTx ./channel-artifacts/channel.tx -channelID tim
  2019-01-15 11:35:34.390 EST [common.tools.configtxgen] main -> INFO 001 Loading configuration
- 2019-01-15 11:35:34.422 EST [common.tools.configtxgen.localconfig] Load -> INFO 002 Loaded configuration: /home/bcuser /git/src/github.com/hyperledger/fabric-samples/first-network/configtx.yaml
+ 2019-01-15 11:35:34.422 EST [common.tools.configtxgen.localconfig] Load -> INFO 002 Loaded configuration: /home/ubuntu /git/src/github.com/hyperledger/fabric-samples/first-network/configtx.yaml
  2019-01-15 11:35:34.452 EST [common.tools.configtxgen.localconfig] completeInitialization -> INFO 003 orderer type: solo
- 2019-01-15 11:35:34.452 EST [common.tools.configtxgen.localconfig] LoadTopLevel -> INFO 004 Loaded configuration: /home/bcuser/git/src/github.com/hyperledger/fabric-samples/first-network/configtx.yaml
+ 2019-01-15 11:35:34.452 EST [common.tools.configtxgen.localconfig] LoadTopLevel -> INFO 004 Loaded configuration: /home/ubuntu/git/src/github.com/hyperledger/fabric-samples/first-network/configtx.yaml
  2019-01-15 11:35:34.452 EST [common.tools.configtxgen] doOutputChannelCreateTx -> INFO 005 Generating new channel configtx
  2019-01-15 11:35:34.453 EST [common.tools.configtxgen] doOutputChannelCreateTx -> INFO 006 Writing new channel tx
  + res=0
@@ -354,7 +354,7 @@ There ain't no Docker containers no more.
 
 **Step 2.22:** Run this command to see if there are any Docker images for the chaincode::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-samples/first-network$ docker images dev-*
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-samples/first-network$ docker images dev-*
  REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
  
 There are no Docker chaincode images remaining as well-  the *byfn.sh down* command cleaned up nicer than a debonair dandy getting ready for a night on the town!
@@ -383,8 +383,8 @@ Therefore, before we can run that test, you will get started by downloading and 
 
 **Step 3.1:** Use *cd* to navigate three directory levels up, to the *hyperledger* directory::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric/examples/e2e_cli$ cd ~/git/src/github.com/hyperledger
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger$
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric/examples/e2e_cli$ cd ~/git/src/github.com/hyperledger
+ ubuntu@techumaster:~/git/src/github.com/hyperledger$
 
 **Step 3.2:** Get the source code for the Fabric CA using *git*::
 
