@@ -26,17 +26,17 @@ In this section, you will:
 
 **Step 2.1:** Create the following directory path with this command.  Make sure you are in your home directory when you enter it. If you are following these steps exactly, you already are.  If you strayed away from your home directory, I'm assuming you're smart enough to get back there or at least smart enough to ask for help::
 
- bcuser@ubuntu16045:~$ mkdir -p git/src/github.com/hyperledger
- bcuser@ubuntu16045:~$
+ ubuntu@techumaster:~$ mkdir -p git/src/github.com/hyperledger
+ ubuntu@techumaster:~$
  
 **Step 2.2:** Navigate to the directory you just created::
 
- bcuser@ubuntu16045:~$ cd git/src/github.com/hyperledger/
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger$
+ ubuntu@techumaster:~$ cd git/src/github.com/hyperledger/
+ ubuntu@techumaster:~/git/src/github.com/hyperledger$
  
 **Step 2.3:** Use the software tool *git* to download the source code of the Hyperledger Fabric core package from the official place where it lives::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger$ git clone -b v1.4.1 --depth 1 https://gerrit.hyperledger.org/r/fabric
+ ubuntu@techumaster:~/git/src/github.com/hyperledger$ git clone -b v1.4.1 --depth 1 https://gerrit.hyperledger.org/r/fabric
  Cloning into 'fabric'...
  remote: Counting objects: 5508, done
  remote: Finding sources: 100% (5508/5508)
@@ -57,18 +57,18 @@ In this section, you will:
 
 **Step 2.4:** Switch to the *fabric* directory, which is the top-level directory of where the *git* command put the code it just downloaded::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger$ cd fabric
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric$
+ ubuntu@techumaster:~/git/src/github.com/hyperledger$ cd fabric
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric$
 
 **Step 2.5:** You will use a program called *make*, which is used to build software projects, in order to build Docker images for Hyperledger Fabric.  But first, run this command to show that your system does not currently have any 
 Docker images stored on it.  The only output you will see is the column headings::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric$ docker images
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric$ docker images
  REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 
 **Step 2.6:** That will change in a few minutes.  Enter the following command, which will build the Hyperledger Fabric Docker images via the *docker* argument on the *make* command- and also build native executable binaries via the *release* argument on the *make* command.  You can ‘wrap’ the *make* command, which is what will do all the work, in a *time* command, which will give you a measure of the time, including ‘wall clock’ time, required to run the *make* command::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric$ time make docker release
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric$ time make docker release
    .
    .  (output not shown here)
    .
@@ -78,7 +78,7 @@ Docker images stored on it.  The only output you will see is the column headings
 
 **Step 2.7:** Run *docker images* again and you will see several Docker images that were just created. You will notice that many of the Docker images at the top of the output were created in the last few minutes.  These were created by the *make docker release* command.  The Docker images that are a few months old were downloaded from Hyperledger Fabric's public DockerHub repository.  Your output should look similar to that shown here, although your *image ids* will be different for the images that were created in the last few minutes::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric$ docker images
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric$ docker images
  REPOSITORY                     TAG                 IMAGE ID            CREATED              SIZE
  hyperledger/fabric-tools       latest                         36d8a7db8056        About a minute ago   1.52GB
  hyperledger/fabric-tools       s390x-1.4.1-snapshot-d700b43   36d8a7db8056        About a minute ago   1.52GB
@@ -101,12 +101,12 @@ Docker images stored on it.  The only output you will see is the column headings
 
 **Step 2.8:** Navigate to up one directory level::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric$ cd ..
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger$
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric$ cd ..
+ ubuntu@techumaster:~/git/src/github.com/hyperledger$
 
-**Step 2.9:** Download the *fabric-samples* repository, which, if I told you it contains Hyperledger Fabric samples, would you believe me?::
+**Step 2.9:** Download the *fabric-samples* repository, which, if I told you it contains Hyperledger Fabric samples, would you believe me?
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger$ git clone -b v1.4.1 --depth 1 https://gerrit.hyperledger.org/r/fabric-samples
+ ubuntu@techumaster:~/git/src/github.com/hyperledger$ git clone -b v1.4.1 --depth 1 https://gerrit.hyperledger.org/r/fabric-samples
  Cloning into 'fabric-samples'...
  remote: Counting objects: 570, done
  remote: Finding sources: 100% (570/570)
@@ -127,33 +127,33 @@ Docker images stored on it.  The only output you will see is the column headings
 
 **Step 2.10:** Navigate to the *fabric-samples* directory which contains the repository you just cloned::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger$ cd fabric-samples/
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-samples$ 
+ ubuntu@techumaster:~/git/src/github.com/hyperledger$ cd fabric-samples/
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-samples$ 
  
 **Step 2.11:** Now here's the thing- there is a way to just download the Hyperledger Fabric Docker images and native executable binaries and it is documented in the *README.md* file in this directory. 
 But you don't need to do that because you just built everything you need from the source code.
 But the sample script you will run soon expects to find a couple of binary files in the *fabric-samples/bin* directory.
 Create that directory with this command::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-samples$ mkdir bin
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-samples$ 
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-samples$ mkdir bin
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-samples$ 
 
 **Step 2.12:** The sample script you will run soon expects to find a program named *cryptogen*, a program named *configtxgen* , and a program named *configtxglator* in the *fabric-samples/bin* directory.
 Let's oblige it by copying these two programs from the directory where there were placed courtesy of the *release* argument of the *make docker release* command from *Step 2.6*::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-samples$ cp -ipv ../fabric/release/linux-s390x/bin/c* bin/.
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-samples$ cp -ipv ../fabric/release/linux-s390x/bin/c* bin/.
  '../fabric/release/linux-s390x/bin/configtxgen' -> 'bin/./configtxgen'
  '../fabric/release/linux-s390x/bin/configtxlator' -> 'bin/./configtxlator'
  '../fabric/release/linux-s390x/bin/cryptogen' -> 'bin/./cryptogen'
 
 **Step 2.13:** Navigate to the *first-network* directory because this is the sample that you will use in this lab::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-samples$ cd first-network/
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-samples/first-network$
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-samples$ cd first-network/
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-samples/first-network$
  
 **Step 2.14:** You will run the test using a script named *byfn.sh* in this directory. There are several arguments to this script. Invoke the script with the *-h* argument in order to display some help text::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-samples/first-network$ ./byfn.sh -h
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-samples/first-network$ ./byfn.sh -h
  Usage: 
    byfn.sh <mode> [-c <channel name>] [-t <timeout>] [-d <delay>] [-f <docker-compose-file>] [-s <dbtype>] [-l <language>] [-o <consensus-type>] [-i <imagetag>] [-v]
      <mode> - one of 'up', 'down', 'restart', 'generate' or 'upgrade'
@@ -243,9 +243,9 @@ If you took all defaults, you would be generating artifacts to create a channel 
  #################################################################
  + configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org1MSPanchors.tx -channelID tim -asOrg Org1MSP
  2019-01-15 11:35:34.518 EST [common.tools.configtxgen] main -> INFO 001 Loading configuration
- 2019-01-15 11:35:34.548 EST [common.tools.configtxgen.localconfig] Load -> INFO 002 Loaded configuration: /home/bcuser/git/src/github.com/hyperledger/fabric-samples/first-network/configtx.yaml
+ 2019-01-15 11:35:34.548 EST [common.tools.configtxgen.localconfig] Load -> INFO 002 Loaded configuration: /home/ubuntu/git/src/github.com/hyperledger/fabric-samples/first-network/configtx.yaml
  2019-01-15 11:35:34.579 EST [common.tools.configtxgen.localconfig] completeInitialization -> INFO 003 orderer type: solo
- 2019-01-15 11:35:34.579 EST [common.tools.configtxgen.localconfig] LoadTopLevel -> INFO 004 Loaded configuration: /home/bcuser/git/src/github.com/hyperledger/fabric-samples/first-network/configtx.yaml
+ 2019-01-15 11:35:34.579 EST [common.tools.configtxgen.localconfig] LoadTopLevel -> INFO 004 Loaded configuration: /home/ubuntu/git/src/github.com/hyperledger/fabric-samples/first-network/configtx.yaml
  2019-01-15 11:35:34.579 EST [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 005 Generating anchor peer update
  2019-01-15 11:35:34.579 EST [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 006 Writing anchor peer update
  + res=0
@@ -256,9 +256,9 @@ If you took all defaults, you would be generating artifacts to create a channel 
  #################################################################
  + configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/Org2MSPanchors.tx -channelID tim -asOrg Org2MSP
  2019-01-15 11:35:34.656 EST [common.tools.configtxgen] main -> INFO 001 Loading configuration
- 2019-01-15 11:35:34.703 EST [common.tools.configtxgen.localconfig] Load -> INFO 002 Loaded configuration: /home/bcuser/git/src/github.com/hyperledger/fabric-samples/first-network/configtx.yaml
+ 2019-01-15 11:35:34.703 EST [common.tools.configtxgen.localconfig] Load -> INFO 002 Loaded configuration: /home/ubuntu/git/src/github.com/hyperledger/fabric-samples/first-network/configtx.yaml
  2019-01-15 11:35:34.737 EST [common.tools.configtxgen.localconfig] completeInitialization -> INFO 003 orderer type: solo
- 2019-01-15 11:35:34.737 EST [common.tools.configtxgen.localconfig] LoadTopLevel -> INFO 004 Loaded configuration: /home/bcuser/git/src/github.com/hyperledger/fabric-samples/first-network/configtx.yaml 
+ 2019-01-15 11:35:34.737 EST [common.tools.configtxgen.localconfig] LoadTopLevel -> INFO 004 Loaded configuration: /home/ubuntu/git/src/github.com/hyperledger/fabric-samples/first-network/configtx.yaml 
  2019-01-15 11:35:34.737 EST [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 005 Generating anchor peer update
  2019-01-15 11:35:34.737 EST [common.tools.configtxgen] doOutputAnchorPeersUpdate -> INFO 006 Writing anchor peer update
  + res=0
@@ -268,7 +268,7 @@ If you took all defaults, you would be generating artifacts to create a channel 
 If your channel is not named *tim* use your correct channel name instead.
 If you want to try one of the other options for chaincode language, state database, or consensus algorithm, I applaud your curiosity and leave the determination of which options to choose as an exercise for the reader)::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-samples/first-network$ ./byfn.sh up -l node -s couchdb -o kafka -c tim 
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-samples/first-network$ ./byfn.sh up -l node -s couchdb -o kafka -c tim 
  Starting for channel 'tim' with CLI timeout of '10' seconds and CLI delay of '3' seconds and using database 'couchdb'
  Continue? [Y/n] Y
   .
@@ -282,7 +282,7 @@ If you want to try one of the other options for chaincode language, state databa
  | |___  | |\  | | |_| | 
  |_____| |_| \_| |____/  
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-samples/first-network$ 
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-samples/first-network$ 
 
 **Step 2.17:** If you were following the output closely you may have noticed a few spots where the output paused for a little bit. 
 This occurred at the point where a peer was building a new Docker image for chaincode.
@@ -293,7 +293,7 @@ But it's all good.
 Run this command to see the three Docker images created for the chaincode.
 These images will start with *dev* because this is the default name of a Hyperledger Fabric network and this script does not override the default::
  
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-samples/first-network$ docker images dev-*
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-samples/first-network$ docker images dev-*
  REPOSITORY                                                                                             TAG                  IMAGE ID            CREATED             SIZE
  dev-peer1.org2.example.com-mycc-1.0-26c2ef32838554aac4f7ad6f100aca865e87959c9a126e86d764c8d01f8346ab   latest              e35e3da4fba1        2 hours ago         1.55GB
  dev-peer0.org1.example.com-mycc-1.0-384f11f484b9302df90b453200cfb25174305fce8f53f4e94d45ee3b6cab0ce9   latest              47f93d1b8fff        2 hours ago         1.55GB
@@ -304,7 +304,7 @@ This sample uses chaincode in three peers.
 
 **Step 2.18:** List the Docker containers that are running as part of this sample with this command::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-samples/first-network$ docker ps --all
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-samples/first-network$ docker ps --all
  CONTAINER ID        IMAGE                                                                                                  COMMAND                  CREATED             STATUS              PORTS                                              NAMES
  fa737dc9aee3        dev-peer1.org2.example.com-mycc-1.0-26c2ef32838554aac4f7ad6f100aca865e87959c9a126e86d764c8d01f8346ab   "/bin/sh -c 'cd /usr…"   2 hours ago         Up 2 hours                                                             dev-peer1.org2.example.com-mycc-1.0
  7ce34a33cf7b        dev-peer0.org1.example.com-mycc-1.0-384f11f484b9302df90b453200cfb25174305fce8f53f4e94d45ee3b6cab0ce9   "/bin/sh -c 'cd /usr…"   2 hours ago         Up 2 hours                                                             dev-peer0.org1.example.com-mycc-1.0
@@ -328,7 +328,7 @@ If you did not choose the *Kafka* orderer consensus algorithm with the *-o* argu
 
 **Step 2.19:** Run the following command pipe to show a more verbose output of the *docker ps* command which comes courtesy of the *--no-trunc* argument and then pipes the output through *grep* with a judicious string, *dev-peer* to filter the output such that you only see the output for the three chaincode containers::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-samples/first-network$ docker ps --no-trunc | grep dev-peer
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-samples/first-network$ docker ps --no-trunc | grep dev-peer
  fa737dc9aee372a6c3b231218581f10487b40b42fd368e09bd62908277c5f3f7   dev-peer1.org2.example.com-mycc-1.0-26c2ef32838554aac4f7ad6f100aca865e87959c9a126e86d764c8d01f8346ab   "/bin/sh -c 'cd /usr/local/src; npm start -- --peer.address peer1.org2.example.com:7052'"   2 hours ago         Up 2 hours                                                             dev-peer1.org2.example.com-mycc-1.0
  7ce34a33cf7baeae846f83ffcd4db57607c42282be784afa5ee62fe3805d7df1   dev-peer0.org1.example.com-mycc-1.0-384f11f484b9302df90b453200cfb25174305fce8f53f4e94d45ee3b6cab0ce9   "/bin/sh -c 'cd /usr/local/src; npm start -- --peer.address peer0.org1.example.com:7052'"   2 hours ago         Up 2 hours                                                             dev-peer0.org1.example.com-mycc-1.0
  0f7e7f6cad01215d306b2020c9e6d190aff69b47bc6b93c4fc46e4ae522f8ce1   dev-peer0.org2.example.com-mycc-1.0-15b571b3ce849066b7ec74497da3b27e54e0df1345daff3951b94245ce09c42b   "/bin/sh -c 'cd /usr/local/src; npm start -- --peer.address peer0.org2.example.com:7052'"   2 hours ago         Up 2 hours                                                             dev-peer0.org2.example.com-mycc-1.0
@@ -338,7 +338,7 @@ The *npm start* command is your clue that this is a Node.js container- *npm* is 
 
 **Step 2.20:** Run this command to stop the Hyperledger Network stood up in *Step 2.16*::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-samples/first-network$ ./byfn.sh down 
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-samples/first-network$ ./byfn.sh down 
  Stopping for channel 'mychannel' with CLI timeout of '10' seconds and CLI delay of '3' seconds
  Continue? [Y/n] Y
   .
@@ -347,7 +347,7 @@ The *npm start* command is your clue that this is a Node.js container- *npm* is 
   
 **Step 2.21:** Run this command to see if there are any running Docker containers::
   
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-samples/first-network$ docker ps --all                     
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-samples/first-network$ docker ps --all                     
  CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
  
 There ain't no Docker containers no more.
@@ -388,7 +388,7 @@ Therefore, before we can run that test, you will get started by downloading and 
 
 **Step 3.2:** Get the source code for the Fabric CA using *git*::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger$ git clone -b v1.4.1 --depth 1 https://gerrit.hyperledger.org/r/fabric-ca
+ ubuntu@techumaster:~/git/src/github.com/hyperledger$ git clone -b v1.4.1 --depth 1 https://gerrit.hyperledger.org/r/fabric-ca
  Cloning into 'fabric-ca'...
  remote: Counting objects: 2089, done
  remote: Finding sources: 100% (2089/2089)
@@ -410,23 +410,23 @@ Therefore, before we can run that test, you will get started by downloading and 
 
 **Step 3.3:** Navigate to the *fabric-ca* directory, which is the top directory of where the *git* command put the code it just downloaded::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger$ cd fabric-ca
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-ca$
+ ubuntu@techumaster:~/git/src/github.com/hyperledger$ cd fabric-ca
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-ca$
 
 **Step 3.4:** Enter the following command, which will build the Hyperledger Fabric CA image.  Just like you did with the *fabric* repo, ‘wrap’ the *make* command, which is what will do all the work, in a *time* command, which will give you a measure of the time, including ‘wall clock’ time, required to build the image::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-ca $ time FABRIC_CA_DYNAMIC_LINK=true make docker
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-ca $ time FABRIC_CA_DYNAMIC_LINK=true make docker
    .
    .  (output not shown here)
    .
  real	1m29.510s
  user	0m0.313s
  sys	0m0.160s
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-ca$
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-ca$
 
 **Step 3.5:** Enter the *docker images* command and you will see at the top of the output the Docker image that was just created for the Fabric Certificate Authority::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-ca$ docker images
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-ca$ docker images
  REPOSITORY                      TAG                 IMAGE ID            CREATED              SIZE
  hyperledger/fabric-ca          latest                         fb40d26bc7a1        55 seconds ago      317MB
  hyperledger/fabric-ca          s390x-1.4.1                    fb40d26bc7a1        55 seconds ago      317MB
