@@ -11,15 +11,16 @@ This master branch of the repository has been prepared for Blockchain Labs @ Ber
 
 3) How to login to your Linux server:
 
-  If you are on MAC or Linux:
-   ```ssh -i <yourkey>.pem ubuntu@<your_IP>```
-
-   Else
-
   From Windows Command line (first make sure that you have putty.exe installed), note that .pek should be used as your key:
    ```putty.exe ssh -i <yourkey>.ppk ubuntu@<your_IP>```
 
   Or use the Putty's GUI
+  
+  
+  You can always sign up for LinuxONE Community Cloud and work from your personal workstation. Here's a command for you if you are working on Mac or Linux - from the terminal:
+  
+  
+   ```ssh -i <yourkey>.pem ubuntu@<your_IP>```
 
 4) Almost all cases where you should enter commands on the command line will be ```formatted like this```.  In many cases the command to be entered is followed by output from that command.  It should be clear what the command is and what the output is but if not ask an instructor for help.  In most cases the command prompt is shown-  make sure you do not copy the command prompt into the clipboard- just copy the command.  Ask an instructor for help if necessary.
 
