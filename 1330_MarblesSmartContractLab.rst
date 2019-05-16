@@ -46,14 +46,14 @@ Shall we begin?
 **Step 3.1:**	Navigate to the home directory by entering *cd ~* (the “tilde” character, i.e., ‘*~*’, represents the user’s home directory in Linux).  
 This directory is also usually set in the $HOME environment variable, so *cd $HOME* will also usually get you to your home directory::
 
- bcuser@ubuntu16045:~/git/src/github.com/hyperledger/fabric-sdk-node$ cd ~
- bcuser@ubuntu16045:~$ 
+ ubuntu@techumaster:~/git/src/github.com/hyperledger/fabric-sdk-node$ cd ~
+ ubuntu@techumaster:~$ 
  
 *Note:* You may already be in your home directory prior to entering *cd ~*, in which case you'll just stay there- not a problem.
 
 **Step 3.2:** Retrieve the zmarbles compressed tarball prepared for this lab with the following command::
 
- bcuser@ubuntu16045:~$ wget https://raw.githubusercontent.com/AnkaShugol/BerlinTechUni/master/zmarbles.tar.gz
+ ubuntu@techumaster:~$ wget https://raw.githubusercontent.com/AnkaShugol/BerlinTechUni/master/zmarbles.tar.gz
  --2019-01-21 07:51:53--  https://raw.githubusercontent.com/AnkaShugol/BerlinTechUni/master/zmarbles.tar.gz
  Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.248.133
  Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.248.133|:443... connected.
@@ -67,7 +67,7 @@ This directory is also usually set in the $HOME environment variable, so *cd $HO
 
 **Step 3.3:**	The *zmarbles* directory should not yet exist.  Prove it with this *ls* command::
 
- bcuser@ubuntu16045:~$ ls zmarbles     
+ ubuntu@techumaster:~$ ls zmarbles     
  ls: cannot access 'zmarbles': No such file or directory
  
 **Step 3.4:**	Extract the *zmarbles.tar.gz* file which will create the missing directory (and lots of subdirectories).  
@@ -75,11 +75,11 @@ If you are not giddy yet, try tucking the “*v*” switch into the options in t
 So, enter the command below as shown, or feel free to substitute *-xzvf* for *-xzf* in the tar command (the “*v*” is for “*verbose*”)
 ::
 
- bcuser@ubuntu16045:~$ tar -xzf zmarbles.tar.gz 
+ ubuntu@techumaster:~$ tar -xzf zmarbles.tar.gz 
  
 **Step 3.5:** List the *zmarbles* directory with this command::
 
- bcuser@ubuntu16045:~$ ls -l zmarbles
+ ubuntu@techumaster:~$ ls -l zmarbles
  total 64
  drwxr-xr-x 2 bcuser bcuser  4096 Jan 19 09:10 base
  drwxrwxr-x 2 bcuser bcuser  4096 Jan 14 07:54 bin
@@ -125,8 +125,8 @@ Section 4	- Bring up the twelve Docker containers that comprise the Hyperledger 
 
 **Step 4.1:**	Change to the *zmarbles* directory with the *cd* command::
 
- bcuser@ubuntu16045:~$ cd zmarbles/ 
- bcuser@ubuntu16045:~/zmarbles$
+ ubuntu@techumaster:~$ cd zmarbles/ 
+ ubuntu@techumaster:~/zmarbles$
  
 **Step 4.2:**	You are going to run a script named *generateArtifacts.sh* that will create some configuration information that is necessary to get your Hyperledger Fabric network set up.  
 There is one optional parameter you may pass to the script, and that is the name of the channel you will be creating.  
@@ -138,9 +138,9 @@ E.g., if you wished to name your channel *tim*, then you would enter *./generate
 
 So, enter the command below, optionally specifying a custom channel name (not shown here) as the lone argument to the *generateArtifacts.sh* script::
 
- bcuser@ubuntu16045:~/zmarbles$ source ./generateArtifacts.sh    # specify a custom channel name or accept the default value of 'mychannel' 
+ ubuntu@techumaster:~/zmarbles$ source ./generateArtifacts.sh    # specify a custom channel name or accept the default value of 'mychannel' 
  
- Using cryptogen -> /home/bcuser/zmarbles/bin/cryptogen
+ Using cryptogen -> /home/ubuntu/zmarbles/bin/cryptogen
 
  ##########################################################
  ##### Generate certificates using cryptogen tool #########
@@ -148,7 +148,7 @@ So, enter the command below, optionally specifying a custom channel name (not sh
  unitedmarbles.com
  marblesinc.com
 
- Using configtxgen -> /home/bcuser/zmarbles/bin/configtxgen
+ Using configtxgen -> /home/ubuntu/zmarbles/bin/configtxgen
  ##########################################################
  #########  Generating Orderer Genesis block ##############
  ##########################################################
@@ -208,7 +208,7 @@ and *configtxgen* (Configuration Transaction Generator), which is called four ti
 
 **Step 4.3:**	Issue the following command which will show you all files that were created by the *configtxgen* utility when it was called from inside *generateArtifacts.sh*::
 
- bcuser@ubuntu16045:~/zmarbles$ ls -ltr channel-artifacts
+ ubuntu@techumaster:~/zmarbles$ ls -ltr channel-artifacts
  total 28
  -rw-r--r-- 1 bcuser bcuser 12787 Oct 22 14:08 genesis.block
  -rw-r--r-- 1 bcuser bcuser   346 Oct 22 14:08 channel.tx
@@ -227,7 +227,7 @@ You will use these inputs in *Section 7*.
 
 **Step 4.4:** Issue the following command which will show you all files that were created by the *cryptogen* utility when it was called from inside *generateArtifacts.sh*.  This command will show one screen at a time and pause-  press the *Enter* key to scroll to the end, that is, until you get your command prompt back::
 
- bcuser@ubuntu16045:~/zmarbles$ ls -ltrR crypto-config | more
+ ubuntu@techumaster:~/zmarbles$ ls -ltrR crypto-config | more
    .
    .  (output not shown here)
    .
@@ -243,7 +243,7 @@ This allows peer nodes from all organizations in a channel to verify digital sig
 
 **Step 4.5:**	You are going to look inside the Docker Compose configuration file a little bit.   Enter the following command::
 
- bcuser@ubuntu16045:~/zmarbles$ vi -R docker-compose.yaml
+ ubuntu@techumaster:~/zmarbles$ vi -R docker-compose.yaml
 
 You can enter ``Ctrl-f`` to scroll forward in the file and ``Ctrl-b`` to scroll back in the file.  
 The *-R* flag opens the file in read-only mode, so if you accidentally change something in the file, it’s okay.  
@@ -360,7 +360,7 @@ If you would like to see what is in the *base/docker-compose-base.yaml* and *bas
 
 **Step 4.6:**	Start the Hyperledger Fabric network by entering the command shown below::
 
- bcuser@ubuntu16045:~/zmarbles$ docker-compose up -d
+ ubuntu@techumaster:~/zmarbles$ docker-compose up -d
  Creating network "zmarbles_default" with the default driver
  Creating couchdb0 ... 
  Creating couchdb1 ... 
@@ -394,7 +394,7 @@ The *Exited* status means something went wrong, and you should check with an ins
 
 If, however, all twelve of your Docker containers are in *Up* status, as in the output below, you are ready to proceed to the next section::
 
- bcuser@ubuntu16045:~/zmarbles$ docker ps --all
+ ubuntu@techumaster:~/zmarbles$ docker ps --all
  CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                                              NAMES
  91819c57c22c        hyperledger/fabric-tools                  "bash"                   59 seconds ago       Up 58 seconds                                                                                   cli
  b62ea5779b10        hyperledger/fabric-peer                   "peer node start"        About a minute ago   Up 59 seconds       0.0.0.0:8051->7051/tcp, 0.0.0.0:8052->7052/tcp, 0.0.0.0:8053->7053/tcp      peer1.unitedmarbles.com
@@ -436,7 +436,7 @@ The decision on how many channels to create and what policies they have will usu
 
 **Step 5.1:**	Access the *cli* Docker container::
 
- bcuser@ubuntu16045:~/zmarbles$ docker exec --interactive --tty cli bash
+ ubuntu@techumaster:~/zmarbles$ docker exec --interactive --tty cli bash
  root@acd1f96d8807:/opt/gopath/src/github.com/hyperledger/fabric/peer#ic/peer#
 
 Observe that your command prompt changes when you enter the Docker container’s shell.
